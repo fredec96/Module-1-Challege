@@ -95,8 +95,9 @@ print(f'The Present Value of the Loan is: ${present_value:.2f}')
 #    If the present value of the loan is greater than or equal to the cost, then print a message that says the loan is worth at least the cost to buy it.
 #    Else, the present value of the loan is less than the loan cost, then print a message that says that the loan is too expensive and not worth the price.
 # YOUR CODE HERE!
+net_present_value = present_value - loan.get('loan_price', '')
 if present_value >= loan.get('loan_price', ''):
-    print('This loan is worth at least the cost to buy it')
+    print(f'This loan is worth at least the cost to buy it, the expected profit is: ${net_present_value:.2f}')
 else:
     print('This loan is too expensive and not worth the price')
 
@@ -126,19 +127,28 @@ new_loan = {
 #    This function should include parameters for `future_value`, `remaining_months`, and the `annual_discount_rate`
 #    The function should return the `present_value` for the loan.
 # YOUR CODE HERE!
-future_value = (new_loan["future_value"])
-remaining_months = (new_loan["remaining_months"])
-
-def calculate_loan_present_value(new_loan['future_value'], new_loan['remaining_months'], annual_discount_rate)
+def calculate_loan_present_value(future_value, remaining_months, annual_discount_rate):
     new_loan_present_value = (future_value / (1 + (annual_discount_rate/12)) ** remaining_months)
     print(f'The Present Value of the Loan is: ${new_loan_present_value:.2f}')
-    return loan_present_value
+    return new_loan_present_value
 
 # @TODO: Use the function to calculate the present value of the new loan given below.
 #    Use an `annual_discount_rate` of 0.2 for this new loan calculation.
 # YOUR CODE HERE!
-print(f"The present value of the loan is: {present_value}")
+calculate_loan_present_value(new_loan['future_value'], new_loan['remaining_months'], 0.2)
 
+
+def calculate_loan_present_value_2(dic, annual_discount_rate):
+    new_loan_present_value_2 = ((dic['future_value']) / (1 + (annual_discount_rate/12)) ** (dic['remaining_months']))
+    print(f'The Present Value of the Loan is: ${new_loan_present_value_2:.2f}')
+    return new_loan_present_value_2
+
+# @TODO: Use the function to calculate the present value of the new loan given below.
+#    Use an `annual_discount_rate` of 0.2 for this new loan calculation.
+# YOUR CODE HERE!
+calculate_loan_present_value_2(new_loan, 0.2)
+
+print('\n ---------- Part 4: Conditionally Filter Lists of Loans ---------- \n')
 
 """Part 4: Conditionally filter lists of loans.
 
