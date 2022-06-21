@@ -39,9 +39,10 @@ annual_discount_rate = 12
 present_value = (future_value / (1 + (.20/annual_discount_rate)) ** remaining_months)
 print(f'The Present Value of the Loan is: ${present_value:.2f}')
 
+net_present_value = present_value - loan.get('loan_price', '')
 
 if present_value >= loan.get('loan_price', ''):
-    print('This loan is worth at least the cost to buy it')
+    print(f'This loan is worth at least the cost to buy it, the expected profit is: ${net_present_value:.2f}')
 else:
     print('This loan is too expensive and not worth the price')
 
