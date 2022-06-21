@@ -86,10 +86,9 @@ print(f'Remaining months on the loan: {remaining_months}')
 #   You'll want to use the **monthly** version of the present value formula.
 #   HINT: Present Value = Future Value / (1 + Discount_Rate/12) ** remaining_months
 # YOUR CODE HERE!
-annual_discount_rate = 12 
-present_value = (future_value / (1 + (.20/annual_discount_rate)) ** remaining_months)
+discount_rate = .20
+present_value = (future_value / (1 + (discount_rate/12)) ** remaining_months)
 print(f'The Present Value of the Loan is: ${present_value:.2f}')
-
 
 # If Present Value represents what the loan is really worth, does it make sense to buy the loan at its cost?
 # @TODO: Write a conditional statement (an if-else statement) to decide if the present value represents the loan's fair value.
@@ -127,7 +126,13 @@ new_loan = {
 #    This function should include parameters for `future_value`, `remaining_months`, and the `annual_discount_rate`
 #    The function should return the `present_value` for the loan.
 # YOUR CODE HERE!
+future_value = (new_loan["future_value"])
+remaining_months = (new_loan["remaining_months"])
 
+def calculate_loan_present_value(new_loan['future_value'], new_loan['remaining_months'], annual_discount_rate)
+    new_loan_present_value = (future_value / (1 + (annual_discount_rate/12)) ** remaining_months)
+    print(f'The Present Value of the Loan is: ${new_loan_present_value:.2f}')
+    return loan_present_value
 
 # @TODO: Use the function to calculate the present value of the new loan given below.
 #    Use an `annual_discount_rate` of 0.2 for this new loan calculation.
@@ -175,13 +180,18 @@ loans = [
 
 # @TODO: Create an empty list called `inexpensive_loans`
 # YOUR CODE HERE!
+inexpensive_loans = []
 
 # @TODO: Loop through all the loans and append any that cost $500 or less to the `inexpensive_loans` list
 # YOUR CODE HERE!
+for loan in loans:
+    for key in loan:
+        if loans[key] <= 500:
+            inexpensive_loans.append(loan)
 
 # @TODO: Print the `inexpensive_loans` list
 # YOUR CODE HERE!
-
+print(inexpensive_loans)
 
 """Part 5: Save the results.
 
