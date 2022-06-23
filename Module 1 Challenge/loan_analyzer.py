@@ -191,7 +191,7 @@ loans = [
 
 # @TODO: Create an empty list called `inexpensive_loans`
 # YOUR CODE HERE!
-inexpensive_loans = [0,]
+inexpensive_loans = [0]
 
 # @TODO: Loop through all the loans and append any that cost $500 or less to the `inexpensive_loans` list
 # YOUR CODE HERE!
@@ -207,6 +207,7 @@ for loan in (inexpensive_loans):
     if inexpensive_loans.index(loan) > 0: 
         print (f"Inexpensive loan Number {inexpensive_loans.index(loan)}: {loan}")
 
+print('\n ---------- Part 5: Save the Results ---------- \n')
 
 """Part 5: Save the results.
 
@@ -231,3 +232,18 @@ output_path = Path("inexpensive_loans.csv")
 # @TODO: Use the csv library and `csv.writer` to write the header row
 # and each row of `loan.values()` from the `inexpensive_loans` list.
 # YOUR CODE HERE!
+with open(output_path, "w") as csvfile:
+    # Create a csvwriter
+    csvwriter = csv.writer(csvfile, delimiter=",")
+
+    # Write the header to the CSV file
+    csvwriter.writerow(header)
+
+    # Write the values of each dictionary inside of `big_raisers`
+    # as a row in the CSV file.
+    for loan in inexpensive_loans:
+        if inexpensive_loans.index(loan) > 0: 
+            csvwriter.writerow(loan.values())
+
+
+
