@@ -137,6 +137,7 @@ def calculate_loan_present_value(future_value, remaining_months, annual_discount
 # YOUR CODE HERE!
 calculate_loan_present_value(new_loan['future_value'], new_loan['remaining_months'], 0.2)
 
+#call function, want to move as little data as possible. In this case the second is oka, but in a very big data set it will slow things down
 
 def calculate_loan_present_value_2(dic, annual_discount_rate):
     new_loan_present_value_2 = ((dic['future_value']) / (1 + (annual_discount_rate/12)) ** (dic['remaining_months']))
@@ -190,18 +191,22 @@ loans = [
 
 # @TODO: Create an empty list called `inexpensive_loans`
 # YOUR CODE HERE!
-inexpensive_loans = []
+inexpensive_loans = [0,]
 
 # @TODO: Loop through all the loans and append any that cost $500 or less to the `inexpensive_loans` list
 # YOUR CODE HERE!
+#1
 for loan in loans:
-    for key in loan:
-        if loans[key] <= 500:
-            inexpensive_loans.append(loan)
+    if loan['loan_price'] <= 500:
+         inexpensive_loans.append(loan)
+         
 
 # @TODO: Print the `inexpensive_loans` list
 # YOUR CODE HERE!
-print(inexpensive_loans)
+for loan in (inexpensive_loans):
+    if inexpensive_loans.index(loan) > 0: 
+        print (f"Inexpensive loan Number {inexpensive_loans.index(loan)}: {loan}")
+
 
 """Part 5: Save the results.
 
